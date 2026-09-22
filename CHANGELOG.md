@@ -17,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Built-in defaults: `Personal` → `opencode-go/mimo-v2.6-pro` (high) and `Work` → `openai-codex/gpt-5.6-sol` (high).
 - Fallback to built-in defaults with a warning when the config file is invalid.
 - Graceful fallback when a config file cannot be written (profiles apply to the current session only).
+- Screenshot in README showing the profile picker.
+- `CODE_OF_CONDUCT.md` (Contributor Covenant 2.1) and `SECURITY.md`.
+- GitHub issue templates (bug report, feature request) and a pull-request template.
+- CI workflow running the test suite and `npm pack --dry-run` across Node 20/22/24.
 
 [Unreleased]: https://github.com/unairada/pi-session-profile-selector/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/unairada/pi-session-profile-selector/releases/tag/v0.1.0

@@ -1,0 +1,44 @@
+name: Feature request
+description: Suggest an idea or improvement for pi-session-profile-selector.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement.
+
+        Please search [existing issues](https://github.com/unairada/pi-session-profile-selector/issues) first to see if the idea has already been discussed.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Describe the workflow or friction this would address. Concrete scenarios are more useful than abstract feature names.
+      placeholder: I regularly switch between four different profiles, but the wizard only lets me configure two.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to happen?
+      description: Describe the behavior you'd like, ideally with an example config or interaction sketch.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've considered
+      description: Any workarounds or other designs you've thought through.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and could not find a duplicate.
+          required: true
+        - label: I am willing to help test or implement this.
+          required: false

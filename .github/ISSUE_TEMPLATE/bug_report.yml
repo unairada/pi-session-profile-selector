@@ -1,0 +1,105 @@
+name: Bug report
+description: Report a problem with pi-session-profile-selector.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug.
+
+        Before opening a new issue, please search [existing issues](https://github.com/unairada/pi-session-profile-selector/issues) — someone else may have already hit the same thing.
+
+        **Pi packages run with your full user permissions.** If this bug involves unexpected commands, network calls, or file writes, please include what you observed so maintainers can assess it quickly.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the bug.
+      placeholder: When I start Pi and pick the Personal profile, ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+      placeholder: I expected the session to switch to opencode-go/mimo-v2.6-pro with high thinking.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: The most reliable way to make the bug happen again.
+      placeholder: |
+        1. Install the package with `pi install ...`
+        2. Start `pi`
+        3. Choose `Work`
+        4. ...
+    validations:
+      required: true
+
+  - type: input
+    id: pi-version
+    attributes:
+      label: Pi version
+      description: Output of `pi --version`.
+      placeholder: "0.87.0"
+    validations:
+      required: true
+
+  - type: input
+    id: package-version
+    attributes:
+      label: Package version
+      description: Value of `version` in `package.json` for the installed package (or the git tag / commit SHA if installed from git).
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install-source
+    attributes:
+      label: How did you install the package?
+      options:
+        - GitHub (pi install https://github.com/...)
+        - npm (pi install npm:pi-session-profile-selector)
+        - Local path
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "macOS 15.1, Ubuntu 24.04, Windows 11"
+    validations:
+      required: true
+
+  - type: textarea
+    id: config
+    attributes:
+      label: Relevant config
+      description: Your `~/.pi/agent/session-profiles.json` (redact anything sensitive). Leave blank if you have not created one.
+      render: json
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or error output
+      description: Any warnings, notifications, or stack traces shown by Pi.
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and could not find a duplicate.
+          required: true
+        - label: I am only reporting a bug in this package (not in Pi itself).
+          required: true

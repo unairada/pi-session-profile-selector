@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Pi documentation
+    url: https://pi.dev/docs/latest
+    about: Questions about Pi itself (installation, providers, models, extensions) belong in the Pi docs first.
+  - name: Security concern
+    url: https://github.com/unairada/pi-session-profile-selector/security/advisories/new
+    about: Please do not file security issues publicly — use a private security advisory.

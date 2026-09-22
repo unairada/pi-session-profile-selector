@@ -10,8 +10,15 @@
     "test": "node --test"
   },
   "keywords": [
+    "pi",
     "pi-package",
-    "pi-extension"
+    "pi-coding-agent",
+    "pi-extension",
+    "model",
+    "model-selector",
+    "session",
+    "profiles",
+    "thinking-level"
   ],
   "author": "Unai",
   "license": "MIT",
@@ -26,6 +33,7 @@
     "README.md",
     "LICENSE",
     "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
     "CONTRIBUTING.md"
   ],
   "repository": {
@@ -35,5 +43,11 @@
   "bugs": {
     "url": "https://github.com/unairada/pi-session-profile-selector/issues"
   },
-  "homepage": "https://github.com/unairada/pi-session-profile-selector#readme"
+  "homepage": "https://github.com/unairada/pi-session-profile-selector#readme",
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }

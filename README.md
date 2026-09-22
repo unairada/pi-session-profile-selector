@@ -4,6 +4,8 @@ Pick a Pi model profile when a new session starts.
 
 `pi-session-profile-selector` is a small [Pi Coding Agent](https://pi.dev) package that asks what kind of session you are starting, then switches Pi to the model and thinking level for that profile. It is useful when you regularly move between contexts such as personal projects, work projects, cheap/fast models, or high-reasoning models.
 
+![Session profile picker in Pi](https://raw.githubusercontent.com/unairada/pi-session-profile-selector/main/docs/screenshot.png)
+
 By default, it asks whether the session is **Personal** or **Work**:
 
 | Profile | Provider | Model | Thinking |
@@ -194,6 +196,12 @@ This package is structured as a Pi package with:
 - A Pi installation that can see your chosen providers (`pi --list-models`)
 
 Run the test suite before opening a pull request. CI runs the same suite on every push and pull request.
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for project layout and the release checklist, and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) for community expectations.
+
+## Reporting security issues
+
+Please see [SECURITY.md](./SECURITY.md). Do not file security issues publicly.
 
 ## License
 
