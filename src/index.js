@@ -10,6 +10,7 @@ import {
   shouldPromptForSessionStart,
 } from './profiles.js';
 import { THINKING_LEVELS, modelChoices, parseModelChoice } from './wizard.js';
+import { createProfileStatus } from './status.js';
 
 const STATUS_KEY = 'session-profile';
 const CONFIG_PATH = join(homedir(), '.pi', 'agent', 'session-profiles.json');
@@ -18,6 +19,21 @@ const CONFIG_PATH = join(homedir(), '.pi', 'agent', 'session-profiles.json');
  * @param {import('@earendil-works/pi-coding-agent').ExtensionAPI} pi
  */
 export default function sessionProfileSelector(pi) {
+  const status = createProfileStatus();
+
+  /**
+   * Re-render the footer status from Pi's current model and effective thinking
+   * level. Called at profile selection and again whenever the user switches
+   * model (`/model`, Ctrl+P) or thinking level (`/thinking`) mid-session.
+   */
+  function refreshStatus(ctx, modelOverride) {
+    const text = status.render(modelOverride ?? ctx.model, pi.getThinkingLevel());
+    if (text) ctx.ui.setStatus(STATUS_KEY, text);
+  }
+
+  pi.on('model_select', (_event, ctx) => refreshStatus(ctx));
+  pi.on('thinking_level_select', (_event, ctx) => refreshStatus(ctx));
+
   pi.on('session_start', async (event, ctx) => {
     const loaded = await loadConfig(CONFIG_PATH);
     const active = await resolveConfigForSession(loaded, ctx, event);
@@ -66,9 +82,10 @@ export default function sessionProfileSelector(pi) {
     }
 
     pi.setThinkingLevel(profile.thinkingLevel);
-    ctx.ui.setStatus(STATUS_KEY, `${profile.label}: ${profile.provider}/${profile.model}:${profile.thinkingLevel}`);
+    status.select(profile.label);
+    refreshStatus(ctx, model);
     ctx.ui.notify(
-      `${profile.label} session: ${profile.provider}/${profile.model} with ${profile.thinkingLevel} thinking.`,
+      `${profile.label} session: ${profile.provider}/${profile.model} with ${pi.getThinkingLevel()} thinking.`,
       'info',
     );
   });

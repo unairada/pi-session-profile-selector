@@ -111,7 +111,21 @@ If the selected model is available and authenticated, the extension sets:
 
 - the active model for this session
 - the thinking level for this session
-- a small footer status showing the chosen profile
+- a footer status showing the chosen profile alongside Pi's current model and thinking level
+
+### Status line
+
+The footer status looks like:
+
+```text
+Personal: opencode-go/mimo-v2.6-pro:high
+```
+
+That is `<profile label>: <provider>/<model id>:<thinking level>`.
+
+The model and thinking level shown are Pi's **current** values, not the ones baked into the profile. The profile's model is only the model the session starts with. If you change model (`/model` or `Ctrl+P`) or thinking level (`/thinking`) later in the session, the status line updates to match — the profile label stays the same so you can still tell which profile the session was opened with.
+
+The level shown is Pi's **effective** thinking level, so if a model clamps the level you requested, the status reflects what is actually in use.
 
 If the model is missing or unauthenticated, Pi shows an error and leaves the current model unchanged.
 

@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- The footer status now tracks Pi's live state: switching model (`/model`, `Ctrl+P`) or thinking level (`/thinking`) mid-session updates the status line to match, keeping the profile label.
+
+### Fixed
+
+- The status line and startup notification now report the *effective* thinking level (after Pi clamps it to the model's capabilities) instead of the requested level.
+
 ## [0.1.1] - 2026-09-22
 
 ### Added
