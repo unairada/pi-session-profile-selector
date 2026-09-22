@@ -1,5 +1,9 @@
 # pi-session-profile-selector
 
+[![npm version](https://img.shields.io/npm/v/pi-session-profile-selector.svg)](https://www.npmjs.com/package/pi-session-profile-selector)
+[![CI](https://github.com/unairada/pi-session-profile-selector/actions/workflows/ci.yml/badge.svg)](https://github.com/unairada/pi-session-profile-selector/actions/workflows/ci.yml)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
 Pick a Pi model profile when a new session starts.
 
 `pi-session-profile-selector` is a small [Pi Coding Agent](https://pi.dev) package that asks what kind of session you are starting, then switches Pi to the model and thinking level for that profile. It is useful when you regularly move between contexts such as personal projects, work projects, cheap/fast models, or high-reasoning models.
@@ -36,13 +40,25 @@ This package only registers a Pi extension that:
 
 ## Installation
 
-Install from GitHub:
+Install from npm:
+
+```bash
+pi install npm:pi-session-profile-selector
+```
+
+Pin to a specific version:
+
+```bash
+pi install npm:pi-session-profile-selector@0.1.0
+```
+
+Or install directly from GitHub:
 
 ```bash
 pi install https://github.com/unairada/pi-session-profile-selector
 ```
 
-For a pinned release or commit:
+For a pinned tag or commit:
 
 ```bash
 pi install https://github.com/unairada/pi-session-profile-selector@v0.1.0
@@ -51,7 +67,7 @@ pi install https://github.com/unairada/pi-session-profile-selector@v0.1.0
 To try the package for a single run without installing it:
 
 ```bash
-pi -e https://github.com/unairada/pi-session-profile-selector
+pi -e npm:pi-session-profile-selector
 ```
 
 From a local clone, install by path:
@@ -59,12 +75,6 @@ From a local clone, install by path:
 ```bash
 git clone https://github.com/unairada/pi-session-profile-selector.git
 pi install ./pi-session-profile-selector
-```
-
-Once published to npm, it will also be installable with:
-
-```bash
-pi install npm:pi-session-profile-selector
 ```
 
 ## Usage
