@@ -7,10 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-09-22
+
 ### Added
 
-- Published to npm as `pi-session-profile-selector`.
+- `pi.image` metadata so the Pi package gallery renders a preview from the README screenshot.
+- A "Scope" section in the README spelling out what the package does and does not do.
 - npm and CI badges in the README.
+
+### Fixed
+
+- `repository.url` now uses the `git+https://` form instead of `git+ssh://`. The Pi package gallery renders a `[repo]` link from this field and was silently skipping packages whose URL it could not parse as a public GitHub link.
+
+### Changed
+
+- `pi install npm:pi-session-profile-selector` is now the recommended install path in the README, with the git URL documented as an alternative.
 
 ## [0.1.0] - 2026-09-22
 
@@ -26,6 +37,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `CODE_OF_CONDUCT.md` (Contributor Covenant 2.1) and `SECURITY.md`.
 - GitHub issue templates (bug report, feature request) and a pull-request template.
 - CI workflow running the test suite and `npm pack --dry-run` across Node 20/22/24.
+- Published to npm as `pi-session-profile-selector`.
 
-[Unreleased]: https://github.com/unairada/pi-session-profile-selector/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/unairada/pi-session-profile-selector/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/unairada/pi-session-profile-selector/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/unairada/pi-session-profile-selector/releases/tag/v0.1.0

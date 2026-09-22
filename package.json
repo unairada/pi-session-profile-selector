@@ -1,6 +1,6 @@
 {
   "name": "pi-session-profile-selector",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Pi extension that asks which session profile to use and selects the matching model and thinking level.",
   "main": "src/index.js",
   "directories": {
@@ -26,7 +26,8 @@
   "pi": {
     "extensions": [
       "./src/index.js"
-    ]
+    ],
+    "image": "https://raw.githubusercontent.com/unairada/pi-session-profile-selector/main/docs/screenshot.png"
   },
   "files": [
     "src",
@@ -38,7 +39,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/unairada/pi-session-profile-selector.git"
+    "url": "git+https://github.com/unairada/pi-session-profile-selector.git"
   },
   "bugs": {
     "url": "https://github.com/unairada/pi-session-profile-selector/issues"

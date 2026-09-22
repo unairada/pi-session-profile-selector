@@ -28,6 +28,26 @@ Pi already lets you save one default model and thinking level. This package is f
 - switch between cheap, fast, and deep-thinking profiles
 - make the choice explicit at the beginning of each new session
 
+## Scope
+
+This package does one thing: it asks which **model** you want when a session starts, and then sets that model and its thinking level for the session.
+
+**In scope**
+
+- Interactive profile picker at Pi startup and `/new`
+- Setting the active model and thinking level for the session
+- Custom profile labels, providers, models, thinking levels, and trigger events via a JSON config
+- A first-run setup wizard for people who prefer not to edit JSON
+
+**Out of scope**
+
+- Managing skills, extensions, MCP servers, or tool selection — Pi handles those separately, and this package never touches them
+- Switching profiles mid-session — use Pi's built-in `/model` and `/thinking` for that
+- Modifying Pi's global defaults (`defaultProvider` / `defaultModel` / `defaultThinkingLevel`) — the change here is per-session only
+- Wrapping or relaunching the `pi` binary — this is a normal `pi install` extension, not a CLI
+
+If you need per-workflow bundles of skills, tools, extensions, or MCP servers, this package is not designed for that.
+
 ## Security note
 
 Pi packages run with your local user permissions. Review package source before installing any third-party Pi package, especially packages that include extensions.
