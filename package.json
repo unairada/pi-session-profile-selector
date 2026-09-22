@@ -1,0 +1,37 @@
+{
+  "name": "pi-session-profile-selector",
+  "version": "0.1.0",
+  "description": "Pi extension that asks which session profile to use and selects the matching model and thinking level.",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "pi-package",
+    "pi-extension"
+  ],
+  "author": "Unai",
+  "license": "MIT",
+  "type": "module",
+  "pi": {
+    "extensions": [
+      "./src/index.js"
+    ]
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/unairada/pi-session-profile-selector.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unairada/pi-session-profile-selector/issues"
+  },
+  "homepage": "https://github.com/unairada/pi-session-profile-selector#readme"
+}
