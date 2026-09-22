@@ -33,6 +33,10 @@ export function shouldPromptForSessionStart(event, askOn = DEFAULT_CONFIG.askOn)
   return askOn.includes(event?.reason);
 }
 
+export function shouldOfferFirstRunSetup(loaded, event) {
+  return loaded.missing === true && loaded.error === undefined && shouldPromptForSessionStart(event, DEFAULT_CONFIG.askOn);
+}
+
 export async function loadConfig(configPath) {
   try {
     const raw = await readFile(configPath, 'utf8');

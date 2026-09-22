@@ -1,7 +1,14 @@
 import { homedir } from 'node:os';
 import { join } from 'node:path';
 
-import { DEFAULT_CONFIG, getProfile, loadConfig, saveConfig, shouldPromptForSessionStart } from './profiles.js';
+import {
+  DEFAULT_CONFIG,
+  getProfile,
+  loadConfig,
+  saveConfig,
+  shouldOfferFirstRunSetup,
+  shouldPromptForSessionStart,
+} from './profiles.js';
 import { THINKING_LEVELS, modelChoices, parseModelChoice } from './wizard.js';
 
 const STATUS_KEY = 'session-profile';
@@ -13,7 +20,7 @@ const CONFIG_PATH = join(homedir(), '.pi', 'agent', 'session-profiles.json');
 export default function sessionProfileSelector(pi) {
   pi.on('session_start', async (event, ctx) => {
     const loaded = await loadConfig(CONFIG_PATH);
-    const active = await resolveConfigForSession(loaded, ctx);
+    const active = await resolveConfigForSession(loaded, ctx, event);
     if (!active) return;
 
     const { prompt, askOn, profiles } = active;
@@ -67,7 +74,7 @@ export default function sessionProfileSelector(pi) {
   });
 }
 
-async function resolveConfigForSession(loaded, ctx) {
+async function resolveConfigForSession(loaded, ctx, event) {
   if (loaded.error && ctx.hasUI) {
     ctx.ui.notify(
       `Could not load ${CONFIG_PATH}: ${loaded.error.message}. Using built-in session profiles.`,
@@ -76,7 +83,7 @@ async function resolveConfigForSession(loaded, ctx) {
     return loaded.config;
   }
 
-  if (!loaded.missing || !ctx.hasUI) {
+  if (!shouldOfferFirstRunSetup(loaded, event) || !ctx.hasUI) {
     return loaded.config;
   }
 
@@ -86,8 +93,7 @@ async function resolveConfigForSession(loaded, ctx) {
   );
 
   if (action === 'Use built-in defaults') {
-    await saveConfig(CONFIG_PATH, DEFAULT_CONFIG);
-    ctx.ui.notify(`Saved built-in session profiles to ${CONFIG_PATH}.`, 'info');
+    await persistConfig(ctx, DEFAULT_CONFIG);
     return DEFAULT_CONFIG;
   }
 
@@ -98,13 +104,27 @@ async function resolveConfigForSession(loaded, ctx) {
       return undefined;
     }
 
-    await saveConfig(CONFIG_PATH, config);
-    ctx.ui.notify(`Saved session profiles to ${CONFIG_PATH}.`, 'info');
+    await persistConfig(ctx, config);
     return config;
   }
 
   ctx.ui.notify('Session profile setup skipped; keeping the current model.', 'warning');
   return undefined;
+}
+
+async function persistConfig(ctx, config) {
+  try {
+    await saveConfig(CONFIG_PATH, config);
+    ctx.ui.notify(`Saved session profiles to ${CONFIG_PATH}.`, 'info');
+    return true;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    ctx.ui.notify(
+      `Could not save ${CONFIG_PATH}: ${message}. Using these profiles for this session only.`,
+      'error',
+    );
+    return false;
+  }
 }
 
 async function runSetupWizard(ctx) {

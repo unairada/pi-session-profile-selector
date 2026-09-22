@@ -34,15 +34,7 @@ This package only registers a Pi extension that:
 
 ## Installation
 
-### From GitHub
-
-After this repository is published, install it with one of these forms:
-
-```bash
-pi install git:github.com/unairada/pi-session-profile-selector
-```
-
-or:
+Install from GitHub:
 
 ```bash
 pi install https://github.com/unairada/pi-session-profile-selector
@@ -51,23 +43,23 @@ pi install https://github.com/unairada/pi-session-profile-selector
 For a pinned release or commit:
 
 ```bash
-pi install git:github.com/unairada/pi-session-profile-selector@v0.1.0
+pi install https://github.com/unairada/pi-session-profile-selector@v0.1.0
 ```
 
-### From a local checkout
+To try the package for a single run without installing it:
+
+```bash
+pi -e https://github.com/unairada/pi-session-profile-selector
+```
+
+From a local clone, install by path:
 
 ```bash
 git clone https://github.com/unairada/pi-session-profile-selector.git
 pi install ./pi-session-profile-selector
 ```
 
-For the local development copy on this machine:
-
-```bash
-pi install /Users/unai/.pi/agent/packages/pi-session-profile-selector
-```
-
-### From npm, if published later
+Once published to npm, it will also be installable with:
 
 ```bash
 pi install npm:pi-session-profile-selector
@@ -196,24 +188,13 @@ This package is structured as a Pi package with:
 - the `pi-package` keyword in `package.json`
 - a `pi.extensions` manifest entry pointing at `src/index.js`
 
-## Publishing
+## Requirements for contributors
 
-A simple GitHub publishing flow:
+- Node.js 20 or newer
+- A Pi installation that can see your chosen providers (`pi --list-models`)
 
-```bash
-cd /path/to/pi-session-profile-selector
-git init
-git add .
-git commit -m "Initial pi session profile selector package"
-git branch -M main
-git remote add origin git@github.com:unairada/pi-session-profile-selector.git
-git push -u origin main
-```
+Run the test suite before opening a pull request. CI runs the same suite on every push and pull request.
 
-Then users can install it with:
+## License
 
-```bash
-pi install git:github.com/unairada/pi-session-profile-selector
-```
-
-For npm publishing later, keep the `pi-package` keyword so the package is discoverable by Pi package search tools and galleries.
+MIT — see [LICENSE](./LICENSE).
