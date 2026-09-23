@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-09-23
+
 ### Added
 
 - The footer status now tracks Pi's live state: switching model (`/model`, `Ctrl+P`) or thinking level (`/thinking`) mid-session updates the status line to match, keeping the profile label.
@@ -25,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- `repository.url` now uses the `git+https://` form instead of `git+ssh://`. The Pi package gallery renders a `[repo]` link from this field and was silently skipping packages whose URL it could not parse as a public GitHub link.
+- `repository.url` now uses the `git+https://` form instead of `git+ssh://`, matching the format the Pi package gallery can turn into a clickable `[repo]` link.
 
 ### Changed
 
@@ -47,6 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI workflow running the test suite and `npm pack --dry-run` across Node 20/22/24.
 - Published to npm as `pi-session-profile-selector`.
 
-[Unreleased]: https://github.com/unairada/pi-session-profile-selector/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/unairada/pi-session-profile-selector/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/unairada/pi-session-profile-selector/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/unairada/pi-session-profile-selector/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/unairada/pi-session-profile-selector/releases/tag/v0.1.0

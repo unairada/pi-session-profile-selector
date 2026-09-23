@@ -1,6 +1,6 @@
 {
   "name": "pi-session-profile-selector",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Pi extension that asks which session profile to use and selects the matching model and thinking level.",
   "main": "src/index.js",
   "directories": {
