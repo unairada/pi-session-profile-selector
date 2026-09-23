@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { createProfileStatus } from '../src/status.js';
 
 const MIMO = { provider: 'opencode-go', id: 'mimo-v2.6-pro' };
-const GPT = { provider: 'openai-codex', id: 'gpt-5.6-sol' };
+const GPT = { provider: 'openai-codex', id: 'gpt-6-sol' };
 
 test('profile status is empty before a profile is selected', () => {
   const status = createProfileStatus();
@@ -25,7 +25,7 @@ test('profile status follows a mid-session model change, keeping the profile lab
 
   assert.equal(
     status.render(GPT, 'high'),
-    'Personal: openai-codex/gpt-5.6-sol:high',
+    'Personal: openai-codex/gpt-6-sol:high',
     'status should show the new model, not the profile default',
   );
 });
@@ -36,7 +36,7 @@ test('profile status follows a mid-session thinking level change', () => {
 
   assert.equal(
     status.render(GPT, 'low'),
-    'Work: openai-codex/gpt-5.6-sol:low',
+    'Work: openai-codex/gpt-6-sol:low',
     'status should show the effective level, not the profile default',
   );
 });

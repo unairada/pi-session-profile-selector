@@ -17,7 +17,7 @@ export const DEFAULT_CONFIG = {
     {
       label: 'Work',
       provider: 'openai-codex',
-      model: 'gpt-5.6-sol',
+      model: 'gpt-6-sol',
       thinkingLevel: 'high',
     },
   ],

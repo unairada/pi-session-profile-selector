@@ -8,8 +8,8 @@ import {
 
 test('formatModelChoice renders provider/model IDs', () => {
   assert.equal(
-    formatModelChoice({ provider: 'openai-codex', id: 'gpt-5.6-sol' }),
-    'openai-codex/gpt-5.6-sol',
+    formatModelChoice({ provider: 'openai-codex', id: 'gpt-6-sol' }),
+    'openai-codex/gpt-6-sol',
   );
 });
 

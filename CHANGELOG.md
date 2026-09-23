@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- The default `Work` profile now uses `openai-codex/gpt-6-sol` instead of `openai-codex/gpt-5.6-sol`.
+
 ## [0.1.2] - 2026-09-23
 
 ### Added

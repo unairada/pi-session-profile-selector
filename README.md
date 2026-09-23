@@ -15,7 +15,7 @@ By default, it asks whether the session is **Personal** or **Work**:
 | Profile | Provider | Model | Thinking |
 | --- | --- | --- | --- |
 | Personal | `opencode-go` | `mimo-v2.6-pro` | `high` |
-| Work | `openai-codex` | `gpt-5.6-sol` | `high` |
+| Work | `openai-codex` | `gpt-6-sol` | `high` |
 
 The prompt appears for Pi startup sessions and `/new` sessions. It does not prompt when resuming, forking, or reloading existing sessions unless you configure it to do so.
 
@@ -161,7 +161,7 @@ Example:
     {
       "label": "Work",
       "provider": "openai-codex",
-      "model": "gpt-5.6-sol",
+      "model": "gpt-6-sol",
       "thinkingLevel": "high"
     },
     {
@@ -205,7 +205,7 @@ If the config file is missing, the built-in Personal/Work defaults are used. If 
 The default profiles require these models to be available in Pi:
 
 - `opencode-go/mimo-v2.6-pro`
-- `openai-codex/gpt-5.6-sol`
+- `openai-codex/gpt-6-sol`
 
 The providers also need working authentication where required. Use Pi's `/login` command to configure provider auth.
 

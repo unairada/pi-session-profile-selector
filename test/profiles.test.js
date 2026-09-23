@@ -16,11 +16,11 @@ test('personal profile uses opencode-go mimo on high thinking', () => {
   });
 });
 
-test('work profile uses OpenAI Codex gpt-5.6-sol on high thinking', () => {
+test('work profile uses OpenAI Codex gpt-6-sol on high thinking', () => {
   assert.deepEqual(getProfile('Work'), {
     label: 'Work',
     provider: 'openai-codex',
-    model: 'gpt-5.6-sol',
+    model: 'gpt-6-sol',
     thinkingLevel: 'high',
   });
 });
